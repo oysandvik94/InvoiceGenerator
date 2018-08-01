@@ -54,7 +54,7 @@ msgstr "Sender"
 
 #: pdf.py:199
 msgid "Payment information"
-msgstr "Betalings informasjon"
+msgstr "Betalingsinformasjon"
 
 #: pdf.py:204
 msgid "Account n."
@@ -141,7 +141,7 @@ msgstr "Forfallsdato"
 
 #: pdf.py:406
 msgid "Taxable date"
-msgstr "Datum zdanitelného plnění"
+msgstr "Fakturadato"
 
 #: pdf.py:410 pdf.py:468
 msgid "Paytype"
@@ -164,7 +164,7 @@ msgstr "Důvod opravy: %s"
 
 #: pdf.py:463
 msgid "Date of exposure"
-msgstr "Datum vystavení"
+msgstr "Fakturadato"
 
 msgid "Document num.: %s"
 msgstr "Dokument nr.: %s"

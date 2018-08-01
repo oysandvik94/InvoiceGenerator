@@ -1,0 +1,16 @@
+colorama
+six
+
+[dev]
+pytest
+tox
+
+[maintainer]
+zest.releaser[recommended]
+
+[pil]
+pillow
+
+[test]
+pytest
+pytest-cov

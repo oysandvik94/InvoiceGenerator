@@ -21,6 +21,8 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.platypus import Frame, KeepInFrame, Paragraph
 
+from datetime import datetime
+
 
 __all__ = ['SimpleInvoice', 'ProformaInvoice', 'CorrectingInvoice']
 
@@ -449,7 +451,7 @@ class SimpleInvoice(BaseInvoice):
         else:
             self.pdf.rect(LEFT * mm, (TOP - i - 11) * mm, (LEFT + 156) * mm, (i + 13) * mm, stroke=True, fill=False)  # 140,142
 
-        self._drawCreator(TOP - i - 20, self.LEFT + 98)
+        #self._drawCreator(TOP - i - 20, self.LEFT + 98)0, self.LEFT + 98)
 
     def _drawCreator(self, TOP, LEFT):
         height = 20*mm
@@ -486,11 +488,11 @@ class SimpleInvoice(BaseInvoice):
         if self.invoice.date and self.invoice.use_tax:
             items.append((LEFT * mm, '%s: %s' % (_(u'Date of exposure taxable invoice'), format_date(self.invoice.date, locale=lang))))
         elif self.invoice.date and not self.invoice.use_tax:
-            items.append((LEFT * mm, '%s: %s' % (_(u'Date of exposure'), format_date(self.invoice.date, locale=lang))))
-        if self.invoice.payback:
-            items.append((LEFT * mm, '%s: %s' % (_(u'Due date'), format_date(self.invoice.payback, locale=lang))))
+            items.append((LEFT * mm, '%s: %s' % (_(u'Date of exposure'), self.invoice.date.strftime('%Y-%m-%d'))))
         if self.invoice.taxable_date:
-            items.append((LEFT * mm, '%s: %s' % (_(u'Taxable date'), format_date(self.invoice.taxable_date, locale=lang))))
+            items.append((LEFT * mm, '%s: %s' % (_(u'Taxable date'), self.invoice.taxable_date.strftime('%Y-%m-%d'))))
+        if self.invoice.payback:
+            items.append((LEFT * mm, '%s: %s' % (_(u'Due date'),self.invoice.payback.strftime('%Y-%m-%d'))))
 
         if self.invoice.paytype:
             items.append((LEFT * mm, '%s: %s' % (_(u'Paytype'), self.invoice.paytype)))
