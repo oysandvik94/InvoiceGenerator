@@ -62,7 +62,7 @@ msgstr "Kontonummer"
 
 #: pdf.py:205
 msgid "Variable symbol"
-msgstr "Variabelt symbol"
+msgstr "KID"
 
 #: pdf.py:209
 msgid "Specific symbol"
